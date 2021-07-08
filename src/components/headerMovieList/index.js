@@ -15,23 +15,19 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Header = (props ) => {
+const Header = (props) => {
   const classes = useStyles();
-  const title = props.title
+  const title = props.title;
   return (
     <Paper component="div" className={classes.root}>
-      <IconButton
-        aria-label="go back"
-      >
+      <IconButton aria-label="go back">
         <ArrowBackIcon color="primary" fontSize="large" />
       </IconButton>
 
       <Typography variant="h4" component="h3">
         {title}
       </Typography>
-      <IconButton
-        aria-label="go forward"
-      >
+      <IconButton aria-label="go forward">
         <ArrowForwardIcon color="primary" fontSize="large" />
       </IconButton>
     </Paper>

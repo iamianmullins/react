@@ -28,9 +28,9 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const MovieDetails = ( props) => {
+const MovieDetails = (props) => {
   const classes = useStyles();
-  const movie = props.movie
+  const movie = props.movie;
 
   return (
     <>
@@ -65,10 +65,13 @@ const MovieDetails = ( props) => {
         <Chip label={`Released: ${movie.release_date}`} />
       </Paper>
 
-
       <Paper component="ul" className={classes.root}>
         <li>
-          <Chip label="Production Countries" className={classes.chip} color="primary" />
+          <Chip
+            label="Production Countries"
+            className={classes.chip}
+            color="primary"
+          />
         </li>
         {movie.production_countries.map((g) => (
           <li key={g.name}>
@@ -77,16 +80,11 @@ const MovieDetails = ( props) => {
         ))}
       </Paper>
 
-
-      <Fab
-        color="secondary"
-        variant="extended"
-        className={classes.fab}
-      >
+      <Fab color="secondary" variant="extended" className={classes.fab}>
         <NavigationIcon />
         Reviews
       </Fab>
-      </>
+    </>
   );
 };
-export default  MovieDetails ;
+export default MovieDetails;
