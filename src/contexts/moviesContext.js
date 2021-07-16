@@ -18,6 +18,10 @@ const MoviesContextProvider = (props) => {
     setMyReviews({ ...myReviews, [movie.id]: review });
   };
 
+  const addToPlayList = (movie) => {
+    setFavorites([...favorites, movie.id]);
+  };
+
   return (
     <MoviesContext.Provider
       value={{
@@ -25,6 +29,7 @@ const MoviesContextProvider = (props) => {
         addToFavorites,
         removeFromFavorites,
         addReview,
+        addToPlayList,
       }}
     >
       {props.children}
