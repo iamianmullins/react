@@ -6,6 +6,7 @@ import { getUpcoming } from "../api/tmdb-api";
 import AddToPlayListIcon from "../components/cardIcons/playListAdd";
 
 const UpcomingMoviesPage = (props) => {
+  // UseQuery hook uses the second argument (getUpcoming) to perform the HTTP request; the first argument, "upcoming" is used as the cache entry key
   const { data, error, isLoading, isError } = useQuery("upcoming", getUpcoming);
 
   if (isLoading) {
@@ -18,8 +19,8 @@ const UpcomingMoviesPage = (props) => {
   const movies = data.results;
 
   // Redundant, but necessary to avoid app crashing.
-  const favorites = movies.filter((m) => m.favorite);
-  localStorage.setItem("favorites", JSON.stringify(favorites));
+  const mustWatch = movies.filter((m) => m.mustWatch);
+  localStorage.setItem("mustWatch", JSON.stringify(mustWatch));
   const addToPlayList = (movieId) => true;
 
   return (

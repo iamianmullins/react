@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Redirect, Switch } from "react-router-dom";
 import UpcomingMoviesPage from "./pages/upcomingMoviesPage";
 import HomePage from "./pages/homePage";
 import MoviePage from "./pages/movieDetailsPage";
+import MustWatchPage from "./pages/mustWatchPage";
 import FavoriteMoviesPage from "./pages/favoriteMoviesPage";
 import MovieReviewPage from "./pages/movieReviewPage";
 import SiteHeader from "./components/siteHeader";
@@ -41,6 +42,7 @@ const App = () => {
               path="/movies/favorites"
               component={FavoriteMoviesPage}
             />
+            <Route exact path="/movies/mustWatch" component={MustWatchPage} />
             <Route path="/movies/:id" component={MoviePage} />
             <Route exact path="/" component={HomePage} />
             <Redirect from="*" to="/" />
