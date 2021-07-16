@@ -6,6 +6,6 @@ export default {
   component: MovieListHeader,
 };
 
-export const Basic = () => <MovieListHeader title={'Discover Movies'} />;
+export const Basic = () => <MovieListHeader title={"Discover Movies"} />;
 
 Basic.storyName = "Default";

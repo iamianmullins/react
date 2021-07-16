@@ -21,12 +21,12 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const MovieHeader = ( { movie, history}) => {
+const MovieHeader = ({ movie, history }) => {
   const classes = useStyles();
 
   return (
     <Paper component="div" className={classes.root}>
-      <IconButton aria-label="go back" onClick={() => history.goBack()} >
+      <IconButton aria-label="go back" onClick={() => history.goBack()}>
         <ArrowBackIcon color="primary" fontSize="large" />
       </IconButton>
 
@@ -38,7 +38,7 @@ const MovieHeader = ( { movie, history}) => {
         <br />
         <span className={classes.tagLine}>{`   "${movie.tagline}"`} </span>
       </Typography>
-      <IconButton aria-label="go forward" onClick={() => history.goForward() } >
+      <IconButton aria-label="go forward" onClick={() => history.goForward()}>
         <ArrowForwardIcon color="primary" fontSize="large" />
       </IconButton>
     </Paper>

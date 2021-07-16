@@ -1,4 +1,4 @@
-import React, { useState} from "react";
+import React, { useState } from "react";
 import Chip from "@material-ui/core/Chip";
 import Paper from "@material-ui/core/Paper";
 import AccessTimeIcon from "@material-ui/icons/AccessTime";
@@ -9,7 +9,7 @@ import Fab from "@material-ui/core/Fab";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Drawer from "@material-ui/core/Drawer";
-import MovieReviews from "../movieReviews"
+import MovieReviews from "../movieReviews";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -30,7 +30,8 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const MovieDetails = ({ movie }) => {  // Don't miss this!
+const MovieDetails = ({ movie }) => {
+  // Don't miss this!
   const classes = useStyles();
   const [drawerOpen, setDrawerOpen] = useState(false);
 
@@ -84,17 +85,21 @@ const MovieDetails = ({ movie }) => {  // Don't miss this!
       <Fab
         color="secondary"
         variant="extended"
-        onClick={() =>setDrawerOpen(true)}
+        onClick={() => setDrawerOpen(true)}
         className={classes.fab}
       >
         <NavigationIcon />
         Reviews
       </Fab>
-      <Drawer anchor="top" open={drawerOpen} onClose={() => setDrawerOpen(false)}>
+      <Drawer
+        anchor="top"
+        open={drawerOpen}
+        onClose={() => setDrawerOpen(false)}
+      >
         <MovieReviews movie={movie} />
       </Drawer>
     </>
   );
 };
 
-export default  MovieDetails ;
+export default MovieDetails;

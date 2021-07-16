@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
-import PageTemplate from '../components/templateMovieListPage'
+import PageTemplate from "../components/templateMovieListPage";
 import { withRouter } from "react-router-dom";
 import { getUpcoming } from "../api/tmdb-api";
 
 const UpcomingMoviesPage = (props) => {
   const [movies, setMovies] = useState([]);
-  const favorites = movies.filter(m => m.favorite)
-  localStorage.setItem('favorites', JSON.stringify(favorites))
+  const favorites = movies.filter((m) => m.favorite);
+  localStorage.setItem("favorites", JSON.stringify(favorites));
 
   const addToFavorites = (movieId) => {
     const updatedMovies = movies.map((m) =>
@@ -16,7 +16,7 @@ const UpcomingMoviesPage = (props) => {
   };
 
   useEffect(() => {
-    getUpcoming().then(movies => {
+    getUpcoming().then((movies) => {
       setMovies(movies);
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -24,7 +24,7 @@ const UpcomingMoviesPage = (props) => {
 
   return (
     <PageTemplate
-      title='Upcoming Movies'
+      title="Upcoming Movies"
       movies={movies}
       selectFavorite={addToFavorites}
     />

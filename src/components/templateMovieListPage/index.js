@@ -43,7 +43,10 @@ function MovieListPageTemplate({ movies, title, selectFavorite }) {
             genreFilter={genreFilter}
           />
         </Grid>
-        <MovieList selectFavorite={selectFavorite} movies={displayedMovies}></MovieList>
+        <MovieList
+          selectFavorite={selectFavorite}
+          movies={displayedMovies}
+        ></MovieList>
       </Grid>
     </Grid>
   );
