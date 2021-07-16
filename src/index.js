@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { BrowserRouter, Route, Redirect, Switch, Link } from "react-router-dom";
+import { BrowserRouter, Route, Redirect, Switch } from "react-router-dom";
 import UpcomingMoviesPage from "./pages/upcomingMoviesPage";
 import HomePage from "./pages/homePage";
 import MoviePage from "./pages/movieDetailsPage";
