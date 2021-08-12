@@ -29,7 +29,7 @@ const SiteHeader = ({ history }) => {
 
   const menuOptions = [
     { label: "Home", path: "/" },
-    { label: "Upcoming", path: "/movies/upcoming" },
+    { label: "TV Airing Today", path: "/movies/upcoming" },
     { label: "Favorites", path: "/movies/favorites" },
     { label: "Must Watch", path: "/movies/mustWatch" },
     //{ label: "Option 3", path: "/" },
@@ -46,13 +46,13 @@ const SiteHeader = ({ history }) => {
 
   return (
     <>
-      <AppBar position="fixed" color="secondary">
+      <AppBar position="fixed">
         <Toolbar>
           <Typography variant="h4" className={classes.title}>
-            TMDB Client
+            React
           </Typography>
           <Typography variant="h6" className={classes.title}>
-            All you ever wanted to know about Movies!
+            TV Shows and reviews. Powered by TMDB!
           </Typography>
           {isMobile ? (
             <>

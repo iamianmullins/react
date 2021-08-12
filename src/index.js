@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter, Route, Redirect, Switch } from "react-router-dom";
-import UpcomingMoviesPage from "./pages/upcomingMoviesPage";
+import UpcomingPage from "./pages/upcomingPage";
 import HomePage from "./pages/homePage";
 import MoviePage from "./pages/movieDetailsPage";
 import MustWatchPage from "./pages/mustWatchPage";
@@ -31,11 +31,7 @@ const App = () => {
         <MoviesContextProvider>
           <Switch>
             <Route exact path="/reviews/form" component={AddMovieReviewPage} />
-            <Route
-              exact
-              path="/movies/upcoming"
-              component={UpcomingMoviesPage}
-            />
+            <Route exact path="/movies/upcoming" component={UpcomingPage} />
             <Route path="/reviews/:id" component={MovieReviewPage} />
             <Route
               exact
@@ -45,6 +41,7 @@ const App = () => {
             <Route exact path="/movies/mustWatch" component={MustWatchPage} />
             <Route path="/movies/:id" component={MoviePage} />
             <Route exact path="/" component={HomePage} />
+
             <Redirect from="*" to="/" />
           </Switch>
         </MoviesContextProvider>

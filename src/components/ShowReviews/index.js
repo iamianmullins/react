@@ -17,7 +17,7 @@ const useStyles = makeStyles({
   },
 });
 
-export default function MovieReviews({ movie }) {
+export default function ShowReviews({ movie }) {
   const classes = useStyles();
   const [reviews, setReviews] = useState([]);
 

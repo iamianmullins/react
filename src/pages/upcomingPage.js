@@ -2,12 +2,15 @@ import React from "react";
 import PageTemplate from "../components/templateMovieListPage";
 import { useQuery } from "react-query";
 import Spinner from "../components/spinner";
-import { getUpcoming } from "../api/tmdb-api";
+import { getUpcomingShows } from "../api/tmdb-api";
 import AddToPlayListIcon from "../components/cardIcons/playListAdd";
 
 const UpcomingMoviesPage = (props) => {
   // UseQuery hook uses the second argument (getUpcoming) to perform the HTTP request; the first argument, "upcoming" is used as the cache entry key
-  const { data, error, isLoading, isError } = useQuery("upcoming", getUpcoming);
+  const { data, error, isLoading, isError } = useQuery(
+    "upcoming",
+    getUpcomingShows
+  );
 
   if (isLoading) {
     return <Spinner />;
@@ -25,7 +28,7 @@ const UpcomingMoviesPage = (props) => {
 
   return (
     <PageTemplate
-      title="Upcoming Movies"
+      title="Shows Airing Today"
       movies={movies}
       action={(movie) => {
         return <AddToPlayListIcon movie={movie} />;

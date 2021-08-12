@@ -2,11 +2,11 @@ import React from "react";
 import PageTemplate from "../components/templateMovieListPage";
 import { useQuery } from "react-query";
 import Spinner from "../components/spinner";
-import { getMovies } from "../api/tmdb-api";
+import { getShows } from "../api/tmdb-api";
 import AddToFavoritesIcon from "../components/cardIcons/addToFavorites";
 
 const HomePage = (props) => {
-  const { data, error, isLoading, isError } = useQuery("discover", getMovies);
+  const { data, error, isLoading, isError } = useQuery("discover", getShows);
 
   if (isLoading) {
     return <Spinner />;
@@ -23,10 +23,10 @@ const HomePage = (props) => {
 
   return (
     <PageTemplate
-      title="Discover Movies"
+      title="Popular TV Shows"
       movies={movies}
-      action={(movie) => {
-        return <AddToFavoritesIcon movie={movie} />;
+      action={(show) => {
+        return <AddToFavoritesIcon show={show} />;
       }}
     />
   );
