@@ -1,14 +1,14 @@
 import React, { useContext } from "react";
 import IconButton from "@material-ui/core/IconButton";
 import DeleteIcon from "@material-ui/icons/Delete";
-import { MoviesContext } from "../../contexts/moviesContext";
+import { ShowsContext } from "../../contexts/showContext";
 
-const RemoveFromPlaylistIcon = ({ movie }) => {
-  const context = useContext(MoviesContext);
+const RemoveFromPlaylistIcon = ({ show }) => {
+  const context = useContext(ShowsContext);
 
   const handleRemoveFromPlaylist = (e) => {
     e.preventDefault();
-    context.removeFromPlaylist(movie);
+    context.removeFromPlaylist(show);
   };
   return (
     <IconButton

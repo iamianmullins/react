@@ -1,11 +1,11 @@
 import React from "react";
-import MovieListHeader from "../components/headerMovieList";
+import ShowListHeader from "../components/headerShowList";
 
 export default {
   title: "Home Page/Header",
-  component: MovieListHeader,
+  component: ShowListHeader,
 };
 
-export const Basic = () => <MovieListHeader title={"Discover Movies"} />;
+export const Basic = () => <ShowListHeader title={"Discover Shows"} />;
 
 Basic.storyName = "Default";

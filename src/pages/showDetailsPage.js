@@ -1,16 +1,16 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
-import MovieDetails from "../components/movieDetails";
-import PageTemplate from "../components/templateMoviePage";
+import ShowDetails from "../components/showDetails";
+import PageTemplate from "../components/templateShowPage";
 import { getShow } from "../api/tmdb-api";
 import { useQuery } from "react-query";
 import Spinner from "../components/spinner";
 
-const MovieDetailsPage = (props) => {
+const ShowDetailsPage = (props) => {
   const { id } = props.match.params;
 
-  const { data: movie, error, isLoading, isError } = useQuery(
-    ["movie", { id: id }],
+  const { data: show, error, isLoading, isError } = useQuery(
+    ["show", { id: id }],
     getShow
   );
 
@@ -24,17 +24,17 @@ const MovieDetailsPage = (props) => {
 
   return (
     <>
-      {movie ? (
+      {show ? (
         <>
-          <PageTemplate movie={movie}>
-            <MovieDetails movie={movie} />
+          <PageTemplate show={show}>
+            <ShowDetails show={show} />
           </PageTemplate>
         </>
       ) : (
-        <p>Waiting for movie details</p>
+        <p>Waiting for show details</p>
       )}
     </>
   );
 };
 
-export default withRouter(MovieDetailsPage);
+export default withRouter(ShowDetailsPage);

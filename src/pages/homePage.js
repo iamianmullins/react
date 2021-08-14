@@ -1,5 +1,5 @@
 import React from "react";
-import PageTemplate from "../components/templateMovieListPage";
+import PageTemplate from "../components/templateShowListPage";
 import { useQuery } from "react-query";
 import Spinner from "../components/spinner";
 import { getShows } from "../api/tmdb-api";
@@ -15,16 +15,16 @@ const HomePage = (props) => {
   if (isError) {
     return <h1>{error.message}</h1>;
   }
-  const movies = data.results;
+  const shows = data.results;
 
   // Redundant, but necessary to avoid app crashing.
-  const favorites = movies.filter((m) => m.favorite);
+  const favorites = shows.filter((m) => m.favorite);
   localStorage.setItem("favorites", JSON.stringify(favorites));
 
   return (
     <PageTemplate
       title="Popular TV Shows"
-      movies={movies}
+      shows={shows}
       action={(show) => {
         return <AddToFavoritesIcon show={show} />;
       }}

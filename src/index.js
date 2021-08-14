@@ -3,15 +3,15 @@ import ReactDOM from "react-dom";
 import { BrowserRouter, Route, Redirect, Switch } from "react-router-dom";
 import UpcomingPage from "./pages/upcomingPage";
 import HomePage from "./pages/homePage";
-import MoviePage from "./pages/movieDetailsPage";
+import ShowPage from "./pages/showDetailsPage";
 import MustWatchPage from "./pages/mustWatchPage";
-import FavoriteMoviesPage from "./pages/favoriteMoviesPage";
-import MovieReviewPage from "./pages/movieReviewPage";
+import FavoriteShowsPage from "./pages/favoriteShowsPage";
+import ShowReviewPage from "./pages/showReviewPage";
 import SiteHeader from "./components/siteHeader";
 import { QueryClientProvider, QueryClient } from "react-query"; // NEW
 import { ReactQueryDevtools } from "react-query/devtools"; // NEW
-import MoviesContextProvider from "./contexts/moviesContext";
-import AddMovieReviewPage from "./pages/addMovieReviewPage";
+import ShowsContextProvider from "./contexts/showContext";
+import AddShowReviewPage from "./pages/addShowReviewPage";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -28,23 +28,23 @@ const App = () => {
     <QueryClientProvider client={queryClient}>
       <BrowserRouter>
         <SiteHeader />
-        <MoviesContextProvider>
+        <ShowsContextProvider>
           <Switch>
-            <Route exact path="/reviews/form" component={AddMovieReviewPage} />
-            <Route exact path="/movies/upcoming" component={UpcomingPage} />
-            <Route path="/reviews/:id" component={MovieReviewPage} />
+            <Route exact path="/reviews/form" component={AddShowReviewPage} />
+            <Route exact path="/shows/upcoming" component={UpcomingPage} />
+            <Route path="/reviews/:id" component={ShowReviewPage} />
             <Route
               exact
-              path="/movies/favorites"
-              component={FavoriteMoviesPage}
+              path="/shows/favorites"
+              component={FavoriteShowsPage}
             />
-            <Route exact path="/movies/mustWatch" component={MustWatchPage} />
-            <Route path="/movies/:id" component={MoviePage} />
+            <Route exact path="/shows/mustWatch" component={MustWatchPage} />
+            <Route path="/shows/:id" component={ShowPage} />
             <Route exact path="/" component={HomePage} />
 
             <Redirect from="*" to="/" />
           </Switch>
-        </MoviesContextProvider>
+        </ShowsContextProvider>
       </BrowserRouter>
       <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>

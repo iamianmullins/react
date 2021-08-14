@@ -4,11 +4,11 @@ import { ShowsContext } from "../contexts/showContext";
 import { useQueries } from "react-query";
 import { getShow } from "../api/tmdb-api";
 import Spinner from "../components/spinner";
-import RemovefromPlaylist from "../components/cardIcons/removeFromPlaylist";
+import RemoveFromFavorites from "../components/cardIcons/removeFromFavorites";
 import WriteReview from "../components/cardIcons/writeReview";
 
-const MustWatchPage = () => {
-  const { mustWatch: showIds } = useContext(ShowsContext);
+const FavoriteShowsPage = () => {
+  const { favorites: showIds } = useContext(ShowsContext);
 
   // Create an array of queries and run in parallel.
   const favoriteShowQueries = useQueries(
@@ -30,12 +30,12 @@ const MustWatchPage = () => {
 
   return (
     <PageTemplate
-      title="Must Watch Shows"
+      title="Favorite Shows"
       shows={shows}
       action={(show) => {
         return (
           <>
-            <RemovefromPlaylist show={show} />
+            <RemoveFromFavorites show={show} />
             <WriteReview show={show} />
           </>
         );
@@ -44,4 +44,4 @@ const MustWatchPage = () => {
   );
 };
 
-export default MustWatchPage;
+export default FavoriteShowsPage;

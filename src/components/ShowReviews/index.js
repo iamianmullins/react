@@ -8,7 +8,7 @@ import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 import { Link } from "react-router-dom";
-import { getMovieReviews } from "../../api/tmdb-api";
+import { getShowReviews } from "../../api/tmdb-api";
 import { excerpt } from "../../util";
 
 const useStyles = makeStyles({
@@ -17,12 +17,12 @@ const useStyles = makeStyles({
   },
 });
 
-export default function ShowReviews({ movie }) {
+export default function ShowReviews({ show }) {
   const classes = useStyles();
   const [reviews, setReviews] = useState([]);
 
   useEffect(() => {
-    getMovieReviews(movie.id).then((reviews) => {
+    getShowReviews(show.id).then((reviews) => {
       setReviews(reviews);
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -51,7 +51,7 @@ export default function ShowReviews({ movie }) {
                     pathname: `/reviews/${r.id}`,
                     state: {
                       review: r,
-                      movie: movie,
+                      show: show,
                     },
                   }}
                 >

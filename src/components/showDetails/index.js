@@ -9,7 +9,7 @@ import Fab from "@material-ui/core/Fab";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Drawer from "@material-ui/core/Drawer";
-import MovieReviews from "../ShowReviews";
+import ShowReviews from "../ShowReviews";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -30,7 +30,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const MovieDetails = ({ movie }) => {
+const ShowDetails = ({ show }) => {
   // Don't miss this!
   const classes = useStyles();
   const [drawerOpen, setDrawerOpen] = useState(false);
@@ -42,30 +42,30 @@ const MovieDetails = ({ movie }) => {
       </Typography>
 
       <Typography variant="h6" component="p">
-        {movie.overview}
+        {show.overview}
       </Typography>
 
       <Paper component="ul" className={classes.root}>
         <li>
           <Chip label="Genres" className={classes.chip} color="primary" />
         </li>
-        {movie.genres.map((g) => (
+        {show.genres.map((g) => (
           <li key={g.name}>
             <Chip label={g.name} className={classes.chip} />
           </li>
         ))}
       </Paper>
       <Paper component="ul" className={classes.root}>
-        <Chip icon={<AccessTimeIcon />} label={`${movie.runtime} min.`} />
+        <Chip icon={<AccessTimeIcon />} label={`${show.runtime} min.`} />
         <Chip
           icon={<MonetizationIcon />}
-          label={`${movie.name.toLocaleString()}`}
+          label={`${show.name.toLocaleString()}`}
         />
         <Chip
           icon={<StarRate />}
-          label={`${movie.vote_average} (${movie.vote_count}`}
+          label={`${show.vote_average} (${show.vote_count}`}
         />
-        <Chip label={`Released: ${movie.release_date}`} />
+        <Chip label={`Released: ${show.release_date}`} />
       </Paper>
 
       <Paper component="ul" className={classes.root}>
@@ -76,7 +76,7 @@ const MovieDetails = ({ movie }) => {
             color="primary"
           />
         </li>
-        {movie.production_countries.map((g) => (
+        {show.production_countries.map((g) => (
           <li key={g.name}>
             <Chip label={g.name} className={classes.chip} />
           </li>
@@ -96,10 +96,10 @@ const MovieDetails = ({ movie }) => {
         open={drawerOpen}
         onClose={() => setDrawerOpen(false)}
       >
-        <MovieReviews movie={movie} />
+        <ShowReviews show={show} />
       </Drawer>
     </>
   );
 };
 
-export default MovieDetails;
+export default ShowDetails;

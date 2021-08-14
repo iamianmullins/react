@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { makeStyles } from "@material-ui/core/styles";
+import { green, pink } from "@material-ui/core/colors";
 import Card from "@material-ui/core/Card";
 import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
@@ -15,24 +16,42 @@ import Grid from "@material-ui/core/Grid";
 import img from "../../images/film-poster-placeholder.png";
 import { Link } from "react-router-dom";
 import Avatar from "@material-ui/core/Avatar";
-import { MoviesContext } from "../../contexts/moviesContext";
+import { ShowsContext } from "../../contexts/showContext";
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   card: { maxWidth: 345 },
   media: { height: 500 },
-  avatar: {
-    backgroundColor: "rgb(255, 0, 0)",
+  root: {
+    display: "flex",
+    "& > *": {
+      margin: theme.spacing(1),
+    },
   },
-});
+  pink: {
+    color: theme.palette.getContrastText(pink[500]),
+    backgroundColor: pink[500],
+  },
+  green: {
+    color: "#fff",
+    backgroundColor: green[500],
+  },
+}));
 
-export default function MovieCard({ movie, action }) {
+export default function ShowCard({ show, action }) {
   const classes = useStyles();
-  const { favorites } = useContext(MoviesContext);
+  const { favorites } = useContext(ShowsContext);
+  const { mustWatch } = useContext(ShowsContext);
 
-  if (favorites.find((id) => id === movie.id)) {
-    movie.favorite = true;
+  if (mustWatch.find((id) => id === show.id)) {
+    show.mustWatch = true;
   } else {
-    movie.favorite = false;
+    show.mustWatch = false;
+  }
+
+  if (favorites.find((id) => id === show.id)) {
+    show.favorite = true;
+  } else {
+    show.favorite = false;
   }
 
   return (
@@ -40,23 +59,23 @@ export default function MovieCard({ movie, action }) {
       <CardHeader
         className={classes.header}
         avatar={
-          movie.favorite ? (
-            <Avatar className={classes.avatar}>
+          show.favorite ? (
+            <Avatar className={classes.pink}>
               <FavoriteIcon />
             </Avatar>
           ) : null
         }
         title={
           <Typography variant="h5" component="p">
-            {movie.name}{" "}
+            {show.name}{" "}
           </Typography>
         }
       />
       <CardMedia
         className={classes.media}
         image={
-          movie.poster_path
-            ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}`
+          show.poster_path
+            ? `https://image.tmdb.org/t/p/w500/${show.poster_path}`
             : img
         }
       />
@@ -65,21 +84,21 @@ export default function MovieCard({ movie, action }) {
           <Grid item xs={6}>
             <Typography variant="h6" component="p">
               <CalendarIcon fontSize="small" />
-              {movie.release_date}
+              {show.first_air_date}
             </Typography>
           </Grid>
           <Grid item xs={6}>
             <Typography variant="h6" component="p">
               <StarRateIcon fontSize="small" />
-              {"  "} {movie.vote_average}{" "}
+              {"  "} {show.vote_average}{" "}
             </Typography>
           </Grid>
         </Grid>
       </CardContent>
       <CardActions disableSpacing>
-        {action(movie)}
+        {action(show)}
 
-        <Link to={`/movies/${movie.id}`}>
+        <Link to={`/shows/${show.id}`}>
           <Button variant="outlined" size="medium" color="primary">
             More Info ...
           </Button>

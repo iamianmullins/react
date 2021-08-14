@@ -1,34 +1,34 @@
 import React from "react";
-import MovieList from "../components/movieList";
-import SampleMovie from "./sampleData";
+import ShowList from "../components/showList";
+import SampleShow from "./sampleData";
 import { MemoryRouter } from "react-router";
 import { action } from "@storybook/addon-actions";
 import AddToFavoritesIcon from "../components/cardIcons/addToFavorites";
 import Grid from "@material-ui/core/Grid";
-import MoviesContextProvider from "../contexts/moviesContext";
+import ShowsContextProvider from "../contexts/whosContext";
 
 export default {
-  title: "Home Page/MovieList",
-  component: MovieList,
+  title: "Home Page/ShowList",
+  component: ShowList,
   decorators: [
     (Story) => <MemoryRouter initialEntries={["/"]}>{Story()}</MemoryRouter>,
-    (Story) => <MoviesContextProvider>{Story()}</MoviesContextProvider>,
+    (Story) => <ShowsContextProvider>{Story()}</ShowsContextProvider>,
   ],
 };
 
 export const Basic = () => {
-  const movies = [
-    { ...SampleMovie, id: 1 },
-    { ...SampleMovie, id: 2 },
-    { ...SampleMovie, id: 3 },
-    { ...SampleMovie, id: 4 },
-    { ...SampleMovie, id: 5 },
+  const shows = [
+    { ...SampleShow, id: 1 },
+    { ...SampleShow, id: 2 },
+    { ...SampleShow, id: 3 },
+    { ...SampleShow, id: 4 },
+    { ...SampleShow, id: 5 },
   ];
   return (
     <Grid container spacing={5}>
-      <MovieList
-        movies={movies}
-        action={(movie) => <AddToFavoritesIcon movie={movie} />}
+      <ShowList
+        shows={shows}
+        action={(show) => <AddToFavoritesIcon show={show} />}
       />
     </Grid>
   );

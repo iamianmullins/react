@@ -1,16 +1,16 @@
 import React from "react";
-import PageTemplate from "../components/templateMoviePage";
+import PageTemplate from "../components/templateShowPage";
 import ReviewForm from "../components/reviewForm";
 import { withRouter } from "react-router-dom";
 import { useQuery } from "react-query";
-import { getMovie } from "../api/tmdb-api";
+import { getShow } from "../api/tmdb-api";
 import Spinner from "../components/spinner";
 
 const WriteReviewPage = (props) => {
-  const { movieId } = props.location.state;
-  const { data: movie, error, isLoading, isError } = useQuery(
-    ["movie", { id: movieId }],
-    getMovie
+  const { showId } = props.location.state;
+  const { data: show, error, isLoading, isError } = useQuery(
+    ["show", { id: showId }],
+    getShow
   );
 
   if (isLoading) {
@@ -21,8 +21,8 @@ const WriteReviewPage = (props) => {
     return <h1>{error.message}</h1>;
   }
   return (
-    <PageTemplate movie={movie}>
-      <ReviewForm movie={movie} />
+    <PageTemplate show={show}>
+      <ReviewForm show={show} />
     </PageTemplate>
   );
 };

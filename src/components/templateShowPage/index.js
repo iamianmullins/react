@@ -1,5 +1,5 @@
 import React from "react"; // useState/useEffect redundant
-import MovieHeader from "../headerMovie";
+import ShowHeader from "../headerShow";
 import Grid from "@material-ui/core/Grid";
 import { makeStyles } from "@material-ui/core/styles";
 import GridList from "@material-ui/core/GridList";
@@ -20,10 +20,10 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const TemplateMoviePage = ({ movie, children }) => {
+const TemplateShowPage = ({ show, children }) => {
   const classes = useStyles();
   const { data, error, isLoading, isError } = useQuery(
-    ["images", { id: movie.id }],
+    ["images", { id: show.id }],
     getShowImages
   );
 
@@ -38,7 +38,7 @@ const TemplateMoviePage = ({ movie, children }) => {
 
   return (
     <>
-      <MovieHeader movie={movie} />
+      <ShowHeader show={show} />
 
       <Grid container spacing={5} style={{ padding: "15px" }}>
         <Grid item xs={3}>
@@ -68,4 +68,4 @@ const TemplateMoviePage = ({ movie, children }) => {
   );
 };
 
-export default TemplateMoviePage;
+export default TemplateShowPage;

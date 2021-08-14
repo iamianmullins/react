@@ -1,17 +1,17 @@
 import React from "react";
-import MoviesHeader from "../components/headerMovieList";
+import ShowsHeader from "../components/headerShowList";
 import { MemoryRouter } from "react-router";
-import MoviesContextProvider from "../contexts/moviesContext";
+import ShowsContextProvider from "../contexts/showsContext";
 
 export default {
-  title: "Home Page/MoviePageHeader",
-  component: MoviesHeader,
+  title: "Home Page/ShowPageHeader",
+  component: ShowsHeader,
   decorators: [
     (Story) => <MemoryRouter initialEntries={["/"]}>{Story()}</MemoryRouter>,
-    (Story) => <MoviesContextProvider>{Story()}</MoviesContextProvider>,
+    (Story) => <ShowsContextProvider>{Story()}</ShowsContextProvider>,
   ],
 };
 
-export const Basic = () => <MoviesHeader title="Discover Movies" />;
+export const Basic = () => <ShowsHeader title="Discover Shows" />;
 
 Basic.storyName = "Default";
