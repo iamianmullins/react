@@ -1,6 +1,7 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
 import ShowDetails from "../components/showDetails";
+import CastDetails from "../components/castDetails";
 import PageTemplate from "../components/templateShowPage";
 import { getShow } from "../api/tmdb-api";
 import { useQuery } from "react-query";
@@ -27,6 +28,7 @@ const ShowDetailsPage = (props) => {
       {show ? (
         <>
           <PageTemplate show={show}>
+            <CastDetails show={show} />
             <ShowDetails show={show} />
           </PageTemplate>
         </>

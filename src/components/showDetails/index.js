@@ -2,9 +2,10 @@ import React, { useState } from "react";
 import Chip from "@material-ui/core/Chip";
 import Paper from "@material-ui/core/Paper";
 import AccessTimeIcon from "@material-ui/icons/AccessTime";
-import MonetizationIcon from "@material-ui/icons/MonetizationOn";
+import TheatersIcon from "@material-ui/icons/Theaters";
 import StarRate from "@material-ui/icons/StarRate";
 import NavigationIcon from "@material-ui/icons/Navigation";
+import CalendarTodayIcon from "@material-ui/icons/CalendarToday";
 import Fab from "@material-ui/core/Fab";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
@@ -56,16 +57,16 @@ const ShowDetails = ({ show }) => {
         ))}
       </Paper>
       <Paper component="ul" className={classes.root}>
-        <Chip icon={<AccessTimeIcon />} label={`${show.runtime} min.`} />
         <Chip
-          icon={<MonetizationIcon />}
-          label={`${show.name.toLocaleString()}`}
+          icon={<AccessTimeIcon />}
+          label={`${show.episode_run_time} min.`}
         />
+        <Chip icon={<TheatersIcon />} label={`${show.status}`} />
         <Chip
           icon={<StarRate />}
           label={`${show.vote_average} (${show.vote_count}`}
         />
-        <Chip label={`Released: ${show.release_date}`} />
+        <Chip icon={<CalendarTodayIcon />} label={`${show.first_air_date}`} />
       </Paper>
 
       <Paper component="ul" className={classes.root}>

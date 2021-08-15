@@ -25,7 +25,7 @@ export const getShowImages = async ({ queryKey }) => {
 //Async await implementation, additional parameters included in query string
 export const getUpcomingShows = async () => {
   const response = await fetch(
-    `https://api.themoviedb.org/3/tv/airing_today?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&include_adult=false&include_video=false&page=1`
+    `https://api.themoviedb.org/3/tv/on_the_air?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&include_adult=false&include_video=false&page=1`
   );
   if (!response.ok) {
     throw new Error(response.json().message);
@@ -46,12 +46,23 @@ export const getShow = async (args) => {
   return response.json();
 };
 
-export const getCast = async (args) => {
-  console.log(args);
-  // eslint-disable-next-line no-unused-vars
-  const [prefix, { id }] = args.queryKey;
-  const response = await fetch(
+export const getCast = (id) => {
+  return fetch(
     `https://api.themoviedb.org/3/tv/${id}/credits?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US`
+  )
+    .then((res) => res.json())
+    .then((json) => {
+      console.log(json.cast);
+
+      return json.cast;
+    });
+};
+
+export const getCastImages = async ({ queryKey }) => {
+  // eslint-disable-next-line no-unused-vars
+  const [prefix, { id }] = queryKey;
+  const response = await fetch(
+    `https://api.themoviedb.org/3/person/${id}/images?api_key=${process.env.REACT_APP_TMDB_KEY}`
   );
   if (!response.ok) {
     throw new Error(response.json().message);
@@ -65,9 +76,21 @@ export const getShowReviews = (id) => {
   )
     .then((res) => res.json())
     .then((json) => {
-      // console.log(json.results);
+      //console.log(json.results);
       return json.results;
     });
+};
+
+export const getGenres = async () => {
+  const response = await fetch(
+    "https://api.themoviedb.org/3/genre/tv/list?api_key=" +
+      process.env.REACT_APP_TMDB_KEY +
+      "&language=en-US"
+  );
+  if (!response.ok) {
+    throw new Error(response.json().message);
+  }
+  return response.json();
 };
 
 //-----------------MOVIES
@@ -96,7 +119,7 @@ export const getMovie = async (args) => {
   return response.json();
 };
 
-export const getGenres = async () => {
+export const getMovieGenres = async () => {
   const response = await fetch(
     "https://api.themoviedb.org/3/genre/movie/list?api_key=" +
       process.env.REACT_APP_TMDB_KEY +
