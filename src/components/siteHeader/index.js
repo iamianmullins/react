@@ -12,10 +12,14 @@ import Menu from "@material-ui/core/Menu";
 import { withRouter } from "react-router-dom";
 import { useTheme } from "@material-ui/core/styles";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
+import navBarColor from "@material-ui/core/colors/indigo";
 
 const useStyles = makeStyles((theme) => ({
   title: {
     flexGrow: 1,
+  },
+  navcolor: {
+    backgroundColor: navBarColor[900],
   },
   offset: theme.mixins.toolbar,
 }));
@@ -46,7 +50,7 @@ const SiteHeader = ({ history }) => {
 
   return (
     <>
-      <AppBar position="fixed">
+      <AppBar className={classes.navcolor} position="fixed">
         <Toolbar>
           <Typography variant="h4" className={classes.title}>
             React

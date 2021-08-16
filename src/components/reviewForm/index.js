@@ -10,6 +10,7 @@ import { withRouter } from "react-router-dom";
 import MenuItem from "@material-ui/core/MenuItem";
 import Snackbar from "@material-ui/core/Snackbar";
 import MuiAlert from "@material-ui/lab/Alert";
+import { grey } from "@material-ui/core/colors";
 
 const ratings = [
   {
@@ -40,6 +41,12 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
+  },
+  inputStyle: {
+    backgroundColor: grey[400],
+  },
+  dropdownStyle: {
+    backgroundColor: grey[400],
   },
   form: {
     width: "100%",
@@ -113,7 +120,7 @@ const ReviewForm = ({ show, history }) => {
         noValidate
       >
         <TextField
-          className={classes.textField}
+          className={(classes.textField, classes.inputStyle)}
           variant="outlined"
           margin="normal"
           required
@@ -130,6 +137,7 @@ const ReviewForm = ({ show, history }) => {
         )}
 
         <TextField
+          className={classes.inputStyle}
           variant="outlined"
           margin="normal"
           required
@@ -150,13 +158,12 @@ const ReviewForm = ({ show, history }) => {
           </Typography>
         )}
         <TextField
+          className={classes.dropdownStyle}
           id="select-rating"
           select
           variant="outlined"
-          label="Rating Select"
           value={rating}
           onChange={handleRatingChange}
-          helperText="Don't forget your rating"
         >
           {ratings.map((option) => (
             <MenuItem key={option.value} value={option.value}>

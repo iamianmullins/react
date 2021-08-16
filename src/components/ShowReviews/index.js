@@ -10,10 +10,12 @@ import Paper from "@material-ui/core/Paper";
 import { Link } from "react-router-dom";
 import { getShowReviews } from "../../api/tmdb-api";
 import { excerpt } from "../../util";
+import grey from "@material-ui/core/colors/grey";
 
 const useStyles = makeStyles({
   table: {
     minWidth: 550,
+    backgroundColor: grey[400],
   },
 });
 

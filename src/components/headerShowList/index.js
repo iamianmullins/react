@@ -6,6 +6,7 @@ import Paper from "@material-ui/core/Paper";
 import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
 import { withRouter } from "react-router-dom";
+import grey from "@material-ui/core/colors/grey";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -13,6 +14,8 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "space-around",
     flexWrap: "wrap",
     marginBottom: theme.spacing(1.5),
+    backgroundColor: grey[900],
+    color: grey[50],
   },
 }));
 

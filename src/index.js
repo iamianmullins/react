@@ -12,6 +12,7 @@ import { QueryClientProvider, QueryClient } from "react-query"; // NEW
 import { ReactQueryDevtools } from "react-query/devtools"; // NEW
 import ShowsContextProvider from "./contexts/showContext";
 import AddShowReviewPage from "./pages/addShowReviewPage";
+import "./App.css";
 
 const queryClient = new QueryClient({
   defaultOptions: {
