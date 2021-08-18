@@ -1,11 +1,11 @@
 import React from "react";
 import ShowList from "../components/showList";
-import SampleShow from "./sampleData";
+import SampleShow from "./sampleShowData";
 import { MemoryRouter } from "react-router";
 import { action } from "@storybook/addon-actions";
 import AddToFavoritesIcon from "../components/cardIcons/addToFavorites";
 import Grid from "@material-ui/core/Grid";
-import ShowsContextProvider from "../contexts/whosContext";
+import ShowsContextProvider from "../contexts/showContext";
 
 export default {
   title: "Home Page/ShowList",

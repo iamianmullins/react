@@ -1,6 +1,6 @@
 import React from "react";
 import ShowHeader from "../components/headerShow";
-import SampleShow from "./sampleData";
+import SampleShow from "./sampleShowData";
 import { MemoryRouter } from "react-router";
 import { action } from "@storybook/addon-actions";
 

@@ -1,6 +1,6 @@
 import React from "react";
 import ShowCard from "../components/showCard";
-import SampleShow from "./sampleData";
+import SampleShow from "./sampleShowData";
 import { MemoryRouter } from "react-router";
 import ShowsContextProvider from "../contexts/showContext";
 import { action } from "@storybook/addon-actions";
