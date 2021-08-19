@@ -40,7 +40,15 @@ const ShowHeader = ({ show, history }) => {
         </a>
         <br />
         <span className={classes.tagLine}>{`   "${show.tagline}"`} </span>
+        <br></br>
+        <span className={classes.tagLine}>
+          {`    Seasons: ${show.number_of_seasons}`}{" "}
+        </span>
+        <span className={classes.tagLine}>
+          {`  / Episodes: ${show.number_of_episodes}`}{" "}
+        </span>
       </Typography>
+
       <IconButton aria-label="go forward" onClick={() => history.goForward()}>
         <ArrowForwardIcon color="primary" fontSize="large" />
       </IconButton>

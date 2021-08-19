@@ -83,7 +83,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const ShowDetails = ({ show, action }) => {
+const SeasonDetails = ({ show, action }) => {
   // Don't miss this!
   const classes = useStyles();
   const [drawerOpen, setDrawerOpen] = useState(false);
@@ -93,65 +93,10 @@ const ShowDetails = ({ show, action }) => {
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
+  let displayedSeasons = show.seasons;
 
   return (
     <>
-      <Typography variant="h5" component="h3" className={classes.overview}>
-        Overview
-      </Typography>
-
-      <Typography variant="h6" component="p" className={classes.overview}>
-        {show.overview}
-      </Typography>
-
-      <Paper component="ul" className={classes.root}>
-        <li>
-          <Chip label="Genres" className={classes.chip} color="primary" />
-        </li>
-        {show.genres.map((g) => (
-          <li key={g.name}>
-            <Chip label={g.name} className={classes.chip} />
-          </li>
-        ))}
-      </Paper>
-      <Paper component="ul" className={classes.root}>
-        <Chip
-          className={classes.chip}
-          icon={<AccessTimeIcon />}
-          label={`${" " + show.episode_run_time} min.`}
-        />
-        <Chip
-          icon={<TheatersIcon />}
-          label={`${show.status}`}
-          className={classes.chip}
-        />
-        <Chip
-          className={classes.chip}
-          icon={<StarRate />}
-          label={`${show.vote_average} (${show.vote_count}`}
-        />
-        <Chip
-          className={classes.chip}
-          icon={<CalendarTodayIcon />}
-          label={`${show.first_air_date}`}
-        />
-      </Paper>
-
-      <Paper component="ul" className={classes.root}>
-        <li>
-          <Chip
-            label="Production Countries"
-            className={classes.chip}
-            color="primary"
-          />
-        </li>
-        {show.production_countries.map((g) => (
-          <li key={g.name}>
-            <Chip label={g.name} className={classes.chip} />
-          </li>
-        ))}
-      </Paper>
-
       <Fab
         color="secondary"
         variant="extended"
@@ -170,6 +115,11 @@ const ShowDetails = ({ show, action }) => {
       </Drawer>
 
       <Paper component="ul" className={classes.root}>
+        <SeasonList
+          action={action}
+          seasons={displayedSeasons}
+          show={show}
+        ></SeasonList>
         <CardHeader className={classes.header} />
 
         <Collapse in={expanded} timeout="auto" unmountOnExit>
@@ -186,4 +136,4 @@ const ShowDetails = ({ show, action }) => {
   );
 };
 
-export default ShowDetails;
+export default SeasonDetails;

@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Redirect, Switch } from "react-router-dom";
 import UpcomingPage from "./pages/upcomingPage";
 import HomePage from "./pages/homePage";
 import ShowPage from "./pages/showDetailsPage";
+import SeasonPage from "./pages/seasonPage";
 import MustWatchPage from "./pages/mustWatchPage";
 import FavoriteShowsPage from "./pages/favoriteShowsPage";
 import ShowReviewPage from "./pages/showReviewPage";
@@ -34,6 +35,7 @@ const App = () => {
             <Route exact path="/reviews/form" component={AddShowReviewPage} />
             <Route exact path="/shows/upcoming" component={UpcomingPage} />
             <Route path="/reviews/:id" component={ShowReviewPage} />
+            <Route path="/seasons/:id" component={SeasonPage} />
             <Route
               exact
               path="/shows/favorites"

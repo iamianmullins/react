@@ -38,7 +38,20 @@ export const getShow = async (args) => {
   // eslint-disable-next-line no-unused-vars
   const [prefix, { id }] = args.queryKey;
   const response = await fetch(
-    `https://api.themoviedb.org/3/tv/${id}?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US`
+    `https://api.themoviedb.org/3/tv/${id}?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&append_to_response=videos,images`
+  );
+  if (!response.ok) {
+    throw new Error(response.json().message);
+  }
+  return response.json();
+};
+
+export const getSeason = async (args) => {
+  console.log(args);
+  // eslint-disable-next-line no-unused-vars
+  const [prefix, { id, season_number }] = args.queryKey;
+  const response = await fetch(
+    `https://api.themoviedb.org/3/tv/${id}/season/${season_number}?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US`
   );
   if (!response.ok) {
     throw new Error(response.json().message);

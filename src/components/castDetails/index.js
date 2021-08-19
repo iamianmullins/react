@@ -5,6 +5,7 @@ import { getCast } from "../../api/tmdb-api";
 import StarIcon from "@material-ui/icons/Star";
 import Grid from "@material-ui/core/Grid";
 import Divider from "@material-ui/core/Divider";
+import { yellow } from "@material-ui/core/colors";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -16,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
     color: theme.palette.text.secondary,
   },
   star: {
-    color: theme.palette.text.secondary,
+    color: yellow[700],
   },
 }));
 
