@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Redirect, Switch } from "react-router-dom";
 import UpcomingPage from "./pages/upcomingPage";
 import HomePage from "./pages/homePage";
 import ShowPage from "./pages/showDetailsPage";
+import SimilarShowPage from "./pages/similarPage";
 import SeasonPage from "./pages/seasonPage";
 import MustWatchPage from "./pages/mustWatchPage";
 import FavoriteShowsPage from "./pages/favoriteShowsPage";
@@ -42,9 +43,12 @@ const App = () => {
               component={FavoriteShowsPage}
             />
             <Route exact path="/shows/mustWatch" component={MustWatchPage} />
+            <Route
+              path="/shows/:id/similar/:showName"
+              component={SimilarShowPage}
+            />
             <Route path="/shows/:id" component={ShowPage} />
             <Route exact path="/" component={HomePage} />
-
             <Redirect from="*" to="/" />
           </Switch>
         </ShowsContextProvider>

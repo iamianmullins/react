@@ -6,7 +6,7 @@ import { getShow } from "../api/tmdb-api";
 import { useQuery } from "react-query";
 import Spinner from "../components/spinner";
 
-const ShowDetailsPage = (props) => {
+const SeasonPage = (props) => {
   const { id } = props.match.params;
 
   const { data: show, error, isLoading, isError } = useQuery(
@@ -31,10 +31,10 @@ const ShowDetailsPage = (props) => {
           </PageTemplate>
         </>
       ) : (
-        <p>Waiting for show details</p>
+        <p>Waiting for season details</p>
       )}
     </>
   );
 };
 
-export default withRouter(ShowDetailsPage);
+export default withRouter(SeasonPage);

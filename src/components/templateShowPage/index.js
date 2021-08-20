@@ -43,7 +43,7 @@ const TemplateShowPage = ({ show, children }) => {
       <Grid container spacing={5} style={{ padding: "15px" }}>
         <Grid item xs={3}>
           <div className={classes.root}>
-            <GridList cellHeight={500} className={classes.gridList} cols={1}>
+            <GridList cellHeight={500} className={classes.gridList} cols={0}>
               {images.map((image) => (
                 <GridListTile
                   key={image.file_path}

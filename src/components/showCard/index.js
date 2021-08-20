@@ -41,7 +41,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   standard: {
-    color: blue[700],
+    color: grey[50],
   },
   favorite: {
     color: yellow[700],
@@ -62,7 +62,7 @@ const useStyles = makeStyles((theme) => ({
     transform: "rotate(180deg)",
   },
   avatar: {
-    backgroundColor: red[500],
+    color: red[500],
   },
 }));
 
@@ -98,54 +98,49 @@ export default function ShowCard({ show, action }) {
             : img
         }
       />
-      <CardHeader
-        className={classes.header}
-        title={
-          show.favorite ? (
-            <Typography className={classes.favorite} variant="h5" gutterBottom>
-              {show.name} <StarRateIcon fontSize="small" />
-              {"  "} {show.vote_average}{" "}
-            </Typography>
-          ) : (
-            <Typography className={classes.standard} variant="h6" gutterBottom>
-              {show.name} <StarRateIcon fontSize="small" />
-              {"  "} {show.vote_average}{" "}
-            </Typography>
-          )
-        }
-      />
+
       <CardActions disableSpacing>
         <div className={classes.root}>
-          <IconButton>{action(show)}</IconButton>
           <div className={classes.root}>
-            <ButtonGroup
-              color="primary"
-              aria-label="outlined primary button group"
-            >
-              <IconButton>
-                <Link to={`/shows/${show.id}`}>
-                  <Button
-                    variant="contained"
-                    color="primary"
-                    className={classes.button}
-                    endIcon={<InfoIcon>send</InfoIcon>}
-                  >
-                    More Info...
-                  </Button>
-                </Link>
-              </IconButton>
-              <IconButton>
-                <Link to={`/seasons/${show.id}`}>
-                  <Button
-                    variant="contained"
-                    color="primary"
-                    className={classes.button}
-                  >
-                    View All Seasons
-                  </Button>
-                </Link>
-              </IconButton>
-            </ButtonGroup>
+            <Link to={`/shows/${show.id}`}>
+              <CardHeader
+                className={classes.header}
+                title={
+                  show.favorite ? (
+                    <Typography
+                      className={classes.favorite}
+                      variant="h5"
+                      gutterBottom
+                    >
+                      {show.name} <StarRateIcon fontSize="small" />
+                      {"  "} {show.vote_average}{" "}
+                    </Typography>
+                  ) : (
+                    <Typography
+                      className={classes.standard}
+                      variant="h6"
+                      gutterBottom
+                    >
+                      {show.name} <StarRateIcon fontSize="small" />
+                      {"  "} {show.vote_average}{" "}
+                    </Typography>
+                  )
+                }
+              />
+            </Link>
+            <IconButton>{action(show)}</IconButton>
+            <IconButton>
+              <Link to={`/shows/${show.id}`}>
+                <Button
+                  variant="contained"
+                  color="primary"
+                  className={classes.button}
+                  endIcon={<InfoIcon>send</InfoIcon>}
+                >
+                  More Info...
+                </Button>
+              </Link>
+            </IconButton>
           </div>
 
           <IconButton
@@ -163,30 +158,6 @@ export default function ShowCard({ show, action }) {
 
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
-          <CardHeader
-            className={classes.header}
-            title={
-              show.favorite ? (
-                <Typography
-                  className={classes.favorite}
-                  variant="h5"
-                  gutterBottom
-                >
-                  {show.name} <StarRateIcon fontSize="small" />
-                  {"  "} {show.vote_average}{" "}
-                </Typography>
-              ) : (
-                <Typography
-                  className={classes.standard}
-                  variant="h6"
-                  gutterBottom
-                >
-                  {show.name} <StarRateIcon fontSize="small" />
-                  {"  "} {show.vote_average}{" "}
-                </Typography>
-              )
-            }
-          />
           <Typography paragraph>
             <CalendarIcon fontSize="small" />
             Release Date: {show.first_air_date}

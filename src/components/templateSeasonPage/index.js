@@ -7,16 +7,16 @@ import GridListTile from "@material-ui/core/GridListTile";
 import { getShowImages } from "../../api/tmdb-api";
 import { useQuery } from "react-query";
 import Spinner from "../spinner";
-import Paper from "@material-ui/core/Paper";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    flexGrow: 1,
+    display: "flex",
+    flexWrap: "wrap",
+    justifyContent: "space-around",
   },
-  paper: {
-    padding: theme.spacing(2),
-    textAlign: "center",
-    color: theme.palette.text.secondary,
+  gridList: {
+    width: 450,
+    height: "100vh",
   },
 }));
 
@@ -41,16 +41,29 @@ const TemplateShowPage = ({ show, children }) => {
       <ShowHeader show={show} />
 
       <Grid container spacing={5} style={{ padding: "15px" }}>
-        <Grid className={classes.template} item xs={12}></Grid>
-      </Grid>
-
-      <div className={classes.root}>
-        <Grid container spacing={3}>
-          <Grid item xs>
-            {children}
-          </Grid>
+        <Grid item xs={3}>
+          <div className={classes.root}>
+            <GridList cellHeight={500} className={classes.gridList} cols={0}>
+              {images.map((image) => (
+                <GridListTile
+                  key={image.file_path}
+                  className={classes.gridListTile}
+                  cols={1}
+                >
+                  <img
+                    src={`https://image.tmdb.org/t/p/w500/${image.file_path}`}
+                    alt={image.poster_path}
+                  />
+                </GridListTile>
+              ))}
+            </GridList>
+          </div>
         </Grid>
-      </div>
+
+        <Grid item xs={9}>
+          {children}
+        </Grid>
+      </Grid>
     </>
   );
 };
