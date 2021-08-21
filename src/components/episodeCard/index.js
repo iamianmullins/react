@@ -8,46 +8,37 @@ import CardMedia from "@material-ui/core/CardMedia";
 import CardHeader from "@material-ui/core/CardHeader";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
-import FavoriteIcon from "@material-ui/icons/Favorite";
-import CalendarIcon from "@material-ui/icons/CalendarTodayTwoTone";
-import StarRateIcon from "@material-ui/icons/StarRate";
-//import IconButton from "@material-ui/core/IconButton";
-//import Grid from "@material-ui/core/Grid";
+
 import img from "../../images/film-poster-placeholder.png";
 import { Link } from "react-router-dom";
-//import Avatar from "@material-ui/core/Avatar";
 import { ShowsContext } from "../../contexts/showContext";
 import clsx from "clsx";
 import Collapse from "@material-ui/core/Collapse";
 import IconButton from "@material-ui/core/IconButton";
+
+//Icons
 import InfoIcon from "@material-ui/icons/Info";
+import FavoriteIcon from "@material-ui/icons/Favorite";
+import CalendarIcon from "@material-ui/icons/CalendarTodayTwoTone";
+import StarRateIcon from "@material-ui/icons/StarRate";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    maxWidth: 345,
-    minWidth: "100%",
+    maxWidth: "345px",
+    minWidth: "350px",
 
     backgroundColor: grey[800],
     color: grey[50],
   },
-  buttons: {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    "& > *": {
-      margin: theme.spacing(1),
-    },
-  },
+
   standard: {
     color: grey[50],
   },
-  favorite: {
-    color: yellow[700],
-  },
+
   media: {
     height: 350,
-    width: "100%",
+    minWidth: "100%",
     paddingTop: "56.25%", // 16:9
   },
   expand: {
@@ -60,28 +51,13 @@ const useStyles = makeStyles((theme) => ({
   expandOpen: {
     transform: "rotate(180deg)",
   },
-  avatar: {
-    color: red[500],
-  },
 }));
 
-export default function ShowCard({ show, action }) {
+export default function EpisodeCard({ episode, action }) {
   const classes = useStyles();
-  const { favorites } = useContext(ShowsContext);
-  const { mustWatch } = useContext(ShowsContext);
+
   const [expanded, setExpanded] = React.useState(false);
 
-  if (mustWatch.find((id) => id === show.id)) {
-    show.mustWatch = true;
-  } else {
-    show.mustWatch = false;
-  }
-
-  if (favorites.find((id) => id === show.id)) {
-    show.favorite = true;
-  } else {
-    show.favorite = false;
-  }
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
@@ -90,10 +66,10 @@ export default function ShowCard({ show, action }) {
     <Card className={classes.root}>
       <CardMedia
         className={classes.media}
-        title={show.name}
+        title={episode.name}
         image={
-          show.poster_path
-            ? `https://image.tmdb.org/t/p/w500/${show.poster_path}`
+          episode.still_path
+            ? `https://image.tmdb.org/t/p/w500/${episode.still_path}`
             : img
         }
       />
@@ -101,18 +77,18 @@ export default function ShowCard({ show, action }) {
       <CardActions disableSpacing>
         <div className={classes.root}>
           <div className={classes.root}>
-            <Link to={`/shows/${show.id}`}>
+            <Link to={`/shows/${episode.id}`}>
               <CardHeader
                 className={classes.header}
                 title={
-                  show.favorite ? (
+                  episode.favorite ? (
                     <Typography
                       className={classes.favorite}
                       variant="h5"
                       gutterBottom
                     >
-                      {show.name} <StarRateIcon fontSize="small" />
-                      {"  "} {show.vote_average}{" "}
+                      {episode.name} <StarRateIcon fontSize="small" />
+                      {"  "} {episode.vote_average}{" "}
                     </Typography>
                   ) : (
                     <Typography
@@ -120,16 +96,15 @@ export default function ShowCard({ show, action }) {
                       variant="h6"
                       gutterBottom
                     >
-                      {show.name} <StarRateIcon fontSize="small" />
-                      {"  "} {show.vote_average}{" "}
+                      {episode.name} <StarRateIcon fontSize="small" />
+                      {"  "} {episode.vote_average}{" "}
                     </Typography>
                   )
                 }
               />
             </Link>
-            <IconButton>{action(show)}</IconButton>
             <IconButton>
-              <Link to={`/shows/${show.id}`}>
+              <Link to={`/shows/${episode.id}`}>
                 <Button
                   variant="contained"
                   color="primary"
@@ -159,9 +134,9 @@ export default function ShowCard({ show, action }) {
         <CardContent>
           <Typography paragraph>
             <CalendarIcon fontSize="small" />
-            Release Date: {show.first_air_date}
+            Release Date: {episode.first_air_date}
           </Typography>
-          <Typography paragraph>{show.overview}</Typography>
+          <Typography paragraph>{episode.overview}</Typography>
         </CardContent>
       </Collapse>
     </Card>

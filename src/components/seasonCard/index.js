@@ -101,7 +101,9 @@ export default function ShowCard({ season, show, action }) {
 
   return (
     <Card className={(classes.root, classes.card)}>
-      <Link to={`/shows/${show.id}/season/${season.season_number}`}>
+      <Link
+        to={`/shows/${show.id}/show/${show.name}/season/${season.season_number}`}
+      >
         <CardMedia
           className={classes.media}
           title={show.name}
