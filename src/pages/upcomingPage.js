@@ -24,7 +24,6 @@ const UpcomingShowsPage = (props) => {
   // Redundant, but necessary to avoid app crashing.
   const mustWatch = shows.filter((m) => m.mustWatch);
   localStorage.setItem("mustWatch", JSON.stringify(mustWatch));
-  const addToPlayList = (showId) => true;
 
   return (
     <PageTemplate

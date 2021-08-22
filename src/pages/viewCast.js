@@ -24,7 +24,7 @@ const ViewCastPage = (props) => {
   }
 
   let showCastList = castList.cast;
-  let showCrew = castList.crew;
+  //let showCrew = castList.crew;
   console.log(showCastList);
 
   return (

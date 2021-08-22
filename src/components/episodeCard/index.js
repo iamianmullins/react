@@ -1,6 +1,6 @@
-import React, { useContext } from "react";
+import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import { blue, red, green, pink, yellow, grey } from "@material-ui/core/colors";
+import { grey } from "@material-ui/core/colors";
 import Card from "@material-ui/core/Card";
 import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
@@ -11,14 +11,12 @@ import Typography from "@material-ui/core/Typography";
 
 import img from "../../images/film-poster-placeholder.png";
 import { Link } from "react-router-dom";
-import { ShowsContext } from "../../contexts/showContext";
 import clsx from "clsx";
 import Collapse from "@material-ui/core/Collapse";
 import IconButton from "@material-ui/core/IconButton";
 
 //Icons
 import InfoIcon from "@material-ui/icons/Info";
-import FavoriteIcon from "@material-ui/icons/Favorite";
 import CalendarIcon from "@material-ui/icons/CalendarTodayTwoTone";
 import StarRateIcon from "@material-ui/icons/StarRate";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";

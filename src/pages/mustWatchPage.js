@@ -26,7 +26,6 @@ const MustWatchPage = () => {
     return <Spinner />;
   }
   const shows = favoriteShowQueries.map((q) => q.data);
-  const toDo = () => true;
 
   return (
     <PageTemplate

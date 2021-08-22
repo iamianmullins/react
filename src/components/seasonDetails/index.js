@@ -1,11 +1,8 @@
 import React, { useState } from "react";
-import Chip from "@material-ui/core/Chip";
+
 import Paper from "@material-ui/core/Paper";
-import AccessTimeIcon from "@material-ui/icons/AccessTime";
-import TheatersIcon from "@material-ui/icons/Theaters";
-import StarRate from "@material-ui/icons/StarRate";
 import NavigationIcon from "@material-ui/icons/Navigation";
-import CalendarTodayIcon from "@material-ui/icons/CalendarToday";
+
 import Fab from "@material-ui/core/Fab";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
@@ -13,7 +10,7 @@ import Drawer from "@material-ui/core/Drawer";
 import ShowReviews from "../ShowReviews";
 import SeasonList from "../seasonList";
 
-import { blue, red, green, pink, yellow, grey } from "@material-ui/core/colors";
+import { blue, yellow, grey } from "@material-ui/core/colors";
 import CardContent from "@material-ui/core/CardContent";
 import CardHeader from "@material-ui/core/CardHeader";
 import CalendarIcon from "@material-ui/icons/CalendarTodayTwoTone";
@@ -69,18 +66,6 @@ const useStyles = makeStyles((theme) => ({
   expandOpen: {
     transform: "rotate(180deg)",
   },
-  avatar: {
-    backgroundColor: red[500],
-  },
-
-  pink: {
-    color: theme.palette.getContrastText(pink[500]),
-    backgroundColor: pink[500],
-  },
-  green: {
-    color: "#fff",
-    backgroundColor: green[500],
-  },
 }));
 
 const SeasonDetails = ({ show, action }) => {
@@ -88,11 +73,8 @@ const SeasonDetails = ({ show, action }) => {
   const classes = useStyles();
   const [drawerOpen, setDrawerOpen] = useState(false);
 
-  const [expanded, setExpanded] = React.useState(false);
+  const [expanded] = React.useState(false);
 
-  const handleExpandClick = () => {
-    setExpanded(!expanded);
-  };
   let displayedSeasons = show.seasons;
 
   return (
