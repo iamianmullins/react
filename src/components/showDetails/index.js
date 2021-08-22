@@ -11,9 +11,8 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Drawer from "@material-ui/core/Drawer";
 import ShowReviews from "../ShowReviews";
-import SeasonList from "../seasonList";
 
-import { blue, red, green, pink, yellow, grey } from "@material-ui/core/colors";
+import { blue, yellow, grey } from "@material-ui/core/colors";
 import CardContent from "@material-ui/core/CardContent";
 import CardHeader from "@material-ui/core/CardHeader";
 import CalendarIcon from "@material-ui/icons/CalendarTodayTwoTone";
@@ -69,18 +68,6 @@ const useStyles = makeStyles((theme) => ({
   expandOpen: {
     transform: "rotate(180deg)",
   },
-  avatar: {
-    backgroundColor: red[500],
-  },
-
-  pink: {
-    color: theme.palette.getContrastText(pink[500]),
-    backgroundColor: pink[500],
-  },
-  green: {
-    color: "#fff",
-    backgroundColor: green[500],
-  },
 }));
 
 const ShowDetails = ({ show, action }) => {
@@ -88,11 +75,7 @@ const ShowDetails = ({ show, action }) => {
   const classes = useStyles();
   const [drawerOpen, setDrawerOpen] = useState(false);
 
-  const [expanded, setExpanded] = React.useState(false);
-
-  const handleExpandClick = () => {
-    setExpanded(!expanded);
-  };
+  const [expanded] = React.useState(false);
 
   return (
     <>
