@@ -7,6 +7,7 @@ import ShowPage from "./pages/showDetailsPage";
 import SimilarShowPage from "./pages/similarPage";
 import ViewEpisodesPage from "./pages/viewEpisodes";
 import SeasonPage from "./pages/seasonPage";
+import ViewCastPage from "./pages/viewCast";
 import MustWatchPage from "./pages/mustWatchPage";
 import FavoriteShowsPage from "./pages/favoriteShowsPage";
 import ShowReviewPage from "./pages/showReviewPage";
@@ -43,6 +44,7 @@ const App = () => {
               path="/shows/favorites"
               component={FavoriteShowsPage}
             />
+            <Route path="/shows/:id/cast/:showName" component={ViewCastPage} />
             <Route exact path="/shows/mustWatch" component={MustWatchPage} />
             <Route
               path="/shows/:id/show/:showName/season/:season_number"

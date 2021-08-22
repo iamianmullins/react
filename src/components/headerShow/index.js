@@ -90,6 +90,14 @@ const ShowHeader = ({ show, history }) => {
             </Link>
           </Button>
           <Button className={classes.button}>
+            <Link
+              className={classes.link}
+              to={`/shows/${show.id}/cast/${show.name}`}
+            >
+              View All Cast Details
+            </Link>
+          </Button>
+          <Button className={classes.button}>
             <Link className={classes.link} to={`/seasons/${show.id}`}>
               View All Seasons
             </Link>
