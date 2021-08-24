@@ -3,6 +3,7 @@ import FilterShowsCard from "../components/filterShowsCard";
 import { MemoryRouter } from "react-router";
 import { action } from "@storybook/addon-actions";
 import { QueryClientProvider, QueryClient } from "react-query";
+import "../App.css";
 
 const queryClient = new QueryClient({
   defaultOptions: {

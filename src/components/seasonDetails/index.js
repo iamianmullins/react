@@ -97,11 +97,7 @@ const SeasonDetails = ({ show, action }) => {
       </Drawer>
 
       <Paper component="ul" className={classes.root}>
-        <SeasonList
-          action={action}
-          seasons={displayedSeasons}
-          show={show}
-        ></SeasonList>
+        <SeasonList seasons={displayedSeasons} show={show}></SeasonList>
         <CardHeader className={classes.header} />
 
         <Collapse in={expanded} timeout="auto" unmountOnExit>

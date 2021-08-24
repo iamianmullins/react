@@ -1,18 +1,19 @@
 import React from "react";
-import ShowsHeader from "../components/headerShowList";
+import CastDetails from "../components/castDetails";
+import SampleShow from "./sampleShowData";
 import { MemoryRouter } from "react-router";
 import ShowsContextProvider from "../contexts/showContext";
 import "../App.css";
 
 export default {
-  title: "Home Page/ShowPageHeader",
-  component: ShowsHeader,
+  title: "Show Details Page/CastDetails",
+  component: CastDetails,
   decorators: [
     (Story) => <MemoryRouter initialEntries={["/"]}>{Story()}</MemoryRouter>,
     (Story) => <ShowsContextProvider>{Story()}</ShowsContextProvider>,
   ],
 };
 
-export const Basic = () => <ShowsHeader title="Discover Shows" />;
+export const Basic = () => <CastDetails show={SampleShow} />;
 
 Basic.storyName = "Default";

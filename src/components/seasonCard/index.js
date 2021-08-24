@@ -74,17 +74,6 @@ export default function ShowCard({ season, show, action }) {
   const { mustWatch } = useContext(ShowsContext);
   const [expanded, setExpanded] = React.useState(false);
 
-  if (mustWatch.find((id) => id === season.id)) {
-    season.mustWatch = true;
-  } else {
-    season.mustWatch = false;
-  }
-
-  if (favorites.find((id) => id === season.id)) {
-    season.favorite = true;
-  } else {
-    season.favorite = false;
-  }
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };

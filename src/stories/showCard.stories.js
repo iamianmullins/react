@@ -5,6 +5,7 @@ import { MemoryRouter } from "react-router";
 import ShowsContextProvider from "../contexts/showContext";
 import { action } from "@storybook/addon-actions";
 import AddToFavoritesIcon from "../components/cardIcons/addToFavorites";
+import "../App.css";
 
 export default {
   title: "Home Page/ShowCard",

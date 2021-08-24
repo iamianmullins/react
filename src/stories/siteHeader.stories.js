@@ -1,6 +1,7 @@
 import React from "react";
 import SiteHeader from "../components/siteHeader";
 import { MemoryRouter } from "react-router";
+import "../App.css";
 
 export default {
   title: "App Header",

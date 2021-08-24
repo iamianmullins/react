@@ -3,6 +3,7 @@ import ShowHeader from "../components/headerShow";
 import SampleShow from "./sampleShowData";
 import { MemoryRouter } from "react-router";
 import { action } from "@storybook/addon-actions";
+import "../App.css";
 
 export default {
   title: "Show Details Page/ShowHeader",
