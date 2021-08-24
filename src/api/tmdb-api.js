@@ -34,7 +34,6 @@ export const getUpcomingShows = async () => {
 };
 
 export const getShow = async (args) => {
-  console.log(args);
   // eslint-disable-next-line no-unused-vars
   const [prefix, { id }] = args.queryKey;
   const response = await fetch(
@@ -47,7 +46,6 @@ export const getShow = async (args) => {
 };
 
 export const getSeason = async (args) => {
-  console.log(args);
   // eslint-disable-next-line no-unused-vars
   const [prefix, { id, season_number }] = args.queryKey;
   const response = await fetch(
@@ -60,7 +58,6 @@ export const getSeason = async (args) => {
 };
 
 export const getSimilarShows = async (args) => {
-  console.log(args);
   // eslint-disable-next-line no-unused-vars
   const [prefix, { id }] = args.queryKey;
   const response = await fetch(
@@ -86,7 +83,6 @@ export const getCast = (id) => {
 };
 
 export const getAggregateCredits = async (args) => {
-  console.log(args);
   // eslint-disable-next-line no-unused-vars
   const [prefix, { id }] = args.queryKey;
   const response = await fetch(
@@ -147,7 +143,6 @@ export const getMovies = async () => {
 };
 
 export const getMovie = async (args) => {
-  console.log(args);
   // eslint-disable-next-line no-unused-vars
   const [prefix, { id }] = args.queryKey;
   const response = await fetch(

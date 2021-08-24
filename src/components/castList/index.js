@@ -26,7 +26,7 @@ const CastList = ({ displayedCast, title }) => {
       sm={8}
       md={6}
       lg={4}
-      xl={12}
+      xl={3}
     >
       <CastMember
         key={cas.id}

@@ -33,6 +33,7 @@ const LoginPage = (props) => {
       },
     },
   }))(InputBase);
+
   const context = useContext(AuthContext);
 
   const login = () => {

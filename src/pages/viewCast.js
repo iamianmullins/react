@@ -23,10 +23,6 @@ const ViewCastPage = (props) => {
     return <h1>{error.message}</h1>;
   }
 
-  let showCastList = castList.cast;
-  //let showCrew = castList.crew;
-  console.log(showCastList);
-
   return (
     <>
       {castList ? (

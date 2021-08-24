@@ -23,8 +23,8 @@ import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    maxWidth: "345px",
-    minWidth: "350px",
+    maxWidth: 345,
+    minWidth: 345,
 
     backgroundColor: grey[800],
     color: grey[50],
@@ -36,7 +36,6 @@ const useStyles = makeStyles((theme) => ({
 
   media: {
     height: 350,
-    minWidth: "100%",
     paddingTop: "56.25%", // 16:9
   },
   expand: {
@@ -101,7 +100,9 @@ export default function EpisodeCard({ episode, action }) {
                 }
               />
             </Link>
-            <IconButton>
+
+            {/* Episode details page not yet implemented */}
+            {/* <IconButton>
               <Link to={`/shows/${episode.id}`}>
                 <Button
                   variant="contained"
@@ -112,7 +113,7 @@ export default function EpisodeCard({ episode, action }) {
                   More Info...
                 </Button>
               </Link>
-            </IconButton>
+            </IconButton> */}
           </div>
 
           <IconButton
@@ -132,7 +133,7 @@ export default function EpisodeCard({ episode, action }) {
         <CardContent>
           <Typography paragraph>
             <CalendarIcon fontSize="small" />
-            Release Date: {episode.first_air_date}
+            Air Date: {episode.air_date}
           </Typography>
           <Typography paragraph>{episode.overview}</Typography>
         </CardContent>
