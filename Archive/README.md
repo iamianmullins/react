@@ -39,45 +39,65 @@ The application focus is a TV show adaptation and refactored version of the orig
 
 ......[For the Movies Fan app] Specify the additional TMDB endpoints used and show sample responses, in JSON .........
 
-- Popular Tv Shows
+Popular Tv Shows
+
 - `https://api.themoviedb.org/3/tv/popular?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&include_adult=false&include_video=false&page=1`
-  ![][popularshows]
 
-- getUpcomingShows
+![][popularshows]
+
+getUpcomingShows
+
 - `https://api.themoviedb.org/3/tv/on_the_air?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&include_adult=false&include_video=false&page=1`
-  ![][getupcomingshows]
 
-- getShowImages
+![][getupcomingshows]
+
+getShowImages
+
 - `https://api.themoviedb.org/3/tv/${id}/images?api_key=${process.env.REACT_APP_TMDB_KEY}`
-  ![][getshowimages]
 
-- getShow
+![][getshowimages]
+
+getShow
+
 - `https://api.themoviedb.org/3/tv/${id}?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&append_to_response=videos,images`
-  ![][getashow]
 
-- getSeason
+![][getashow]
+
+getSeason
+
 - `https://api.themoviedb.org/3/tv/${id}/season/${season_number}?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&append_to_response=videos,images`
-  ![][getseason]
 
-- getSimilarShows
+![][getseason]
+
+getSimilarShows
+
 - `https://api.themoviedb.org/3/tv/${id}/similar?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&append_to_response=videos,images`
-  ![][getsimilarshows]
 
-- getCast
+![][getsimilarshows]
+
+getCast
+
 - `https://api.themoviedb.org/3/tv/${id}/credits?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US`
-  ![][getcast]
 
-- getAggregateCredits
+![][getcast]
+
+getAggregateCredits
+
 - `https://api.themoviedb.org/3/tv/${id}/aggregate_credits?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US`
-  ![][getaggregatecredits]
 
-- getShowReviews
+![][getaggregatecredits]
+
+getShowReviews
+
 - `https://api.themoviedb.org/3/tv/${id}/reviews?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US`
-  ![][getshowreviews]
 
-- getGenres
+![][getshowreviews]
+
+getGenres
+
 - `https://api.themoviedb.org/3/genre/tv/list?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US`
-  ![][gettvshowgenres]
+
+![][gettvshowgenres]
 
 ## App Design.
 
@@ -113,17 +133,17 @@ The application focus is a TV show adaptation and refactored version of the orig
 
 ## Independent learning (If relevant).
 
-....... Briefly state any technologies/techniques used in your project codebase that was not covered in the lectures/labs. Provide source code filename (source code excerpts are not required in most cases) references to support your assertions and include references (articles/blogs) .........
+Further exploration into material UI framework. Expansion panels used extensively
 
 [model]: ./data.jpg
 [view]: ./view.png
 [stories]: ./storybook.png
-[popularshows]: ./popularshows.jpg
-[getupcomingshows]: ./getupcomingshows.jpg
-[getshowimages]: ./getshowimages.jpg
-[getashow]: ./getashow.jpg
-[getseason]: ./getseason.jpg
-[getsimilarshows]: ./getsimilarshows.jpg
-[getaggregatecredits]: ./getaggregatecredits.jpg
-[getshowreviews]: ./getshowreviews.jpg
-[gettvshowgenres]: ./gettvshowgenres.jpg
+[popularshows]: ./popularShows.JPG
+[getupcomingshows]: ./getUpcomingShows.JPG
+[getshowimages]: ./getShowImages.JPG
+[getashow]: ./getaShow.JPG
+[getseason]: ./getaSeason.JPG
+[getsimilarshows]: ./getSimilarShows.JPG
+[getaggregatecredits]: ./getAggregateCredits.JPG
+[getshowreviews]: ./getShowReviews.JPG
+[gettvshowgenres]: ./getTvShowGenres.JPG
