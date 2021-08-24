@@ -86,15 +86,17 @@ export default function ShowCard({ show, action }) {
 
   return (
     <Card className={classes.root}>
-      <CardMedia
-        className={classes.media}
-        title={show.name}
-        image={
-          show.poster_path
-            ? `https://image.tmdb.org/t/p/w500/${show.poster_path}`
-            : img
-        }
-      />
+      <Link to={`/shows/${show.id}`}>
+        <CardMedia
+          className={classes.media}
+          title={show.name}
+          image={
+            show.poster_path
+              ? `https://image.tmdb.org/t/p/w500/${show.poster_path}`
+              : img
+          }
+        />
+      </Link>
 
       <CardActions disableSpacing>
         <div className={classes.root}>

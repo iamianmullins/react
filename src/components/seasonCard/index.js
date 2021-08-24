@@ -45,6 +45,7 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(0, 0),
     display: "flex",
     flexDirection: "column",
+    color: grey[50],
   },
   expand: {
     transform: "rotate(0deg)",
@@ -92,15 +93,19 @@ export default function ShowCard({ season, show }) {
       </Link>
 
       <CardActions className={classes.text}>
-        <CardHeader
-          className={classes.header}
-          title={
-            <Typography className={classes.text} variant="h5" gutterBottom>
-              {show.name}: {season.name}
-              <br></br>
-            </Typography>
-          }
-        />
+        <Link
+          to={`/shows/${show.id}/show/${show.name}/season/${season.season_number}`}
+        >
+          <CardHeader
+            className={classes.header}
+            title={
+              <Typography className={classes.text} variant="h5" gutterBottom>
+                {show.name}: {season.name}
+                <br></br>
+              </Typography>
+            }
+          />
+        </Link>
         <IconButton
           className={
             (classes.expand,

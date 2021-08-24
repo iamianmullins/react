@@ -6,8 +6,6 @@ Name: Ian Mullins
 
 The application focus is a TV show adaptation and refactored version of the original movies fan app.
 
-...... A bullet-point list of user features. If it's the Movies Fan app extension, only list new/modified features......
-
 - Refactoring of the original movies to page to display popular TV shows
 - Refactoring of the original movies to page to display TV shows airing today
 - UI updates and improvements with dark mode style theme
@@ -32,12 +30,6 @@ The application focus is a TV show adaptation and refactored version of the orig
 - Run npm start to run the app on localhost
 
 ## API Data Model.
-
-..... [For non-Movies Fan app] Insert a diagram of the API's data model (see example below) AND/OR a sample(s) of the JSON documents returned by its endpoints ........
-
-![][model]
-
-......[For the Movies Fan app] Specify the additional TMDB endpoints used and show sample responses, in JSON .........
 
 Popular Tv Shows
 
@@ -103,17 +95,35 @@ getGenres
 
 ### Component catalogue.
 
-....... Insert a screenshot from the Storybook UI showing your component catalogue. [For the Movies app, hi-light stories relating to new/modified components - see the example screenshot below] .......
-
-![][stories]
+![][storybook]
 
 ### UI Design.
 
-...... Insert screenshots of the app's views, with appropriate captions (see example below). (For the Movies Fan App, only show the new/modified views) ........
-
-![][view]
-
+> ![][login]
+> Shows login page required for authentication which allows access to private routes.
+> ![][popularshows]
 > Shows detailed information on a movie. Clicking the 'Reviews' floating action button will display extracts from critic reviews.
+> ![][popularshows2]
+> Clicking the expand icon displays a show release date and a brief synopsis of the show
+> Clicking the heart icon adds the show to the list of user favorites in the favorites tab
+> ![][similarshows]
+> Displays a list of shows which would be considered similar to a specific show
+> ![][viewcast]
+> Displays the actor name and photo for each actor in the cast
+> ![][viewcast2]
+> Clicking the expand icon displays the list of roles the actor plays in the show
+> ![][viewepisodes]
+> List of all episodes for a specific season of a specific tv show.
+> ![][viewepisodes2]
+> Clicking the expand icon displays the air date and a brief overview of the episode
+> ![][viewseasons]
+> List of all seasons for a specific show.
+> Clicking the tile image will link the user to the episodes for season
+> ![][viewseasons2]
+> Clicking the expand icon displays a release date and a brief overview of the season
+> ![][viewshow]
+> Shows detailed information on a Tv show. Clicking the 'Reviews' floating action button will display extracts from critic reviews.
+> Selecting one of the blue buttons above will prove additional information about the show
 
 ### Routing.
 
@@ -133,7 +143,10 @@ getGenres
 
 ## Independent learning (If relevant).
 
-Further exploration into material UI framework. Expansion panels used extensively
+Further exploration into material UI framework. Expansion panels used extensively.
+Further investigation into use of of parameterized URLs to display show name etc
+Initial research into pagination, but not enough time to implement
+Deployment of application to netlify https://im-tmdb.netlify.app/
 
 [model]: ./data.jpg
 [view]: ./view.png
@@ -141,9 +154,22 @@ Further exploration into material UI framework. Expansion panels used extensivel
 [popularshows]: ./popularShows.JPG
 [getupcomingshows]: ./getUpcomingShows.JPG
 [getshowimages]: ./getShowImages.JPG
+[getcast]: ./getCast.JPG
 [getashow]: ./getaShow.JPG
 [getseason]: ./getaSeason.JPG
 [getsimilarshows]: ./getSimilarShows.JPG
 [getaggregatecredits]: ./getAggregateCredits.JPG
 [getshowreviews]: ./getShowReviews.JPG
 [gettvshowgenres]: ./getTvShowGenres.JPG
+[login]: ./login.JPG
+[popularshows]: ./popularshows.JPG
+[popularshows2]: ./popularshows2.JPG
+[similarshows]: ./similarshows.JPG
+[viewcast]: ./viewcast.JPG
+[viewcast2]: ./viewcast2.JPG
+[viewepisodes]: ./viewepisodes.JPG
+[viewepisodes2]: ./viewepisodes2.JPG
+[viewseasons]: ./viewseasons.JPG
+[viewseasons2]: ./viewseasons2.JPG
+[viewshow]: ./viewshow.JPG
+[storybook]: ./storybook.JPG

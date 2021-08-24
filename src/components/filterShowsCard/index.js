@@ -85,7 +85,7 @@ export default function FilterShowsCard(props) {
   const genres = data.genres;
 
   //Causing duplicate entries in genre list
-  genres.unshift({ id: "0", name: "All" });
+  //genres.unshift({ id: "0", name: "All" });
 
   const handleChange = (e, type, value) => {
     e.preventDefault();
