@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { grey } from "@material-ui/core/colors";
 import Card from "@material-ui/core/Card";
@@ -12,8 +12,7 @@ import CalendarIcon from "@material-ui/icons/CalendarTodayTwoTone";
 
 import img from "../../images/film-poster-placeholder.png";
 import { Link } from "react-router-dom";
-import { ShowsContext } from "../../contexts/showContext";
-import clsx from "clsx";
+
 import Collapse from "@material-ui/core/Collapse";
 import IconButton from "@material-ui/core/IconButton";
 
@@ -68,10 +67,8 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function ShowCard({ season, show, action }) {
+export default function ShowCard({ season, show }) {
   const classes = useStyles();
-  const { favorites } = useContext(ShowsContext);
-  const { mustWatch } = useContext(ShowsContext);
   const [expanded, setExpanded] = React.useState(false);
 
   const handleExpandClick = () => {
@@ -105,10 +102,12 @@ export default function ShowCard({ season, show, action }) {
           }
         />
         <IconButton
-          className={classes.text}
-          className={clsx(classes.expand, classes.text, {
-            [classes.expandOpen]: expanded,
-          })}
+          className={
+            (classes.expand,
+            {
+              [classes.expandOpen]: expanded,
+            })
+          }
           onClick={handleExpandClick}
           aria-expanded={expanded}
           aria-label="show more"

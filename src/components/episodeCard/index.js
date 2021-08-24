@@ -6,7 +6,6 @@ import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import CardHeader from "@material-ui/core/CardHeader";
-import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 
 import img from "../../images/film-poster-placeholder.png";
@@ -16,7 +15,6 @@ import Collapse from "@material-ui/core/Collapse";
 import IconButton from "@material-ui/core/IconButton";
 
 //Icons
-import InfoIcon from "@material-ui/icons/Info";
 import CalendarIcon from "@material-ui/icons/CalendarTodayTwoTone";
 import StarRateIcon from "@material-ui/icons/StarRate";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
