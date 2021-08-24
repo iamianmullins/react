@@ -18,7 +18,7 @@ The application focus is a TV show adaptation and refactored version of the orig
 - Implementation of "View similar shows" page
 - Addition of basic authentication, public and private routing
 - Implementation of parameterized usl's
-- Addition of a login page reqiored to access private routes, Favorites and must watch page
+- Addition of a login page required to access private routes, Favorites and must watch page
 
 ## Setup requirements.
 
